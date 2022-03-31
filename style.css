@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("img/table-bg.jpg");
+    background-size: cover;
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: goldenrod;
+    text-shadow: 0px 0px 2px #000000;
+}
+
+
+
+#diceImage {
+    display:none;
+}
+
+ul {
+    list-style-type: none;    
+}
