@@ -9,7 +9,12 @@
 }
 
 body {
-    background-image: url("img/table-bg.jpg");
+    background-image: linear-gradient(
+        90deg, 
+        rgba(0,0,0,0.9) 0%, 
+        rgba(0,0,0,0) 50%, 
+        rgba(0,0,0,0.9) 100%), 
+        url("img/table-bg.jpg");
     background-size: cover;
     font-family: 'MedievalSharp', cursive;
     text-align: center;
@@ -20,6 +25,24 @@ body {
     align-items: center;
     color: goldenrod;
     text-shadow: 0px 0px 2px #000000;
+}
+
+.win {
+    background-image: linear-gradient(
+        90deg, 
+        rgba(0,128,0,0.5) 0%, 
+        rgba(0,128,0,0.25) 50%, 
+        rgba(0,128,0,0.5) 100%), 
+        url("img/table-bg.jpg");
+}
+
+.lose {
+    background-image: linear-gradient(
+        90deg, 
+        rgba(128,0,0,0.5) 0%, 
+        rgba(128,0,0,0.25) 50%, 
+        rgba(128,0,0,0.5) 100%), 
+        url("img/table-bg.jpg");
 }
 
 #scoreDisplay {
@@ -50,6 +73,10 @@ p, li {
 
 ul {
     list-style-type: none;    
+}
+
+li {
+    padding: 6px;
 }
 
 button {
