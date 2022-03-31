@@ -7,12 +7,15 @@ let gameOver = false;
 const rollButton = document.getElementById("rollButton");
 const currentScoreDisplay = document.getElementById("scoreDisplay");
 const scoreSummaryText = document.getElementById("scoreSummary");
+const scoreSection = document.getElementById("scoreSection");
 const diceImage = document.getElementById("diceImage");
 const instructionText = document.getElementById("instruction");
 const body = document.getElementsByTagName("body")[0];
 const diceRollSFX = document.getElementsByTagName("audio")[0];
 
 rollButton.addEventListener("click", () => {
+
+    scoreSection.style.display = "inline";
 
     if (gameOver) {
         resetDisplay();

@@ -90,3 +90,7 @@ button {
 button:hover {
     background-color: #222222;
 }
+
+#scoreSection {
+    display: none;
+}
