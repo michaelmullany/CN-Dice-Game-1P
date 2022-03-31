@@ -5,7 +5,7 @@ let illegalValue = 1;
 
 const rollButton = document.getElementById("rollButton");
 const currentScoreDisplay = document.getElementById("scoreDisplay");
-const targetScoreDisplay = document.getElementById("targetScore");
+const scoreSummaryText = document.getElementById("scoreSummary");
 const diceImage = document.getElementById("diceImage");
 const instructionText = document.getElementById("instruction");
 const body = document.getElementsByTagName("body")[0];
@@ -31,6 +31,7 @@ rollButton.addEventListener("click", () => {
 });
 
 const rollDice = () => {
+    scoreSummaryText.textContent = "Current Score"
     rollButton.textContent = "Roll the Dice";
     body.classList.remove("win","lose");
     diceValue = Math.ceil(Math.random() * 6);
@@ -48,16 +49,18 @@ const updateScoreDisplay = () => {
 
 const processLoss = () => {
     body.classList.add("lose");
-    currentScore = 0;
-    rollButton.textContent = "Roll to Start Again";
     instructionText.textContent = "You Lost! Roll the dice to start a new game.";
+    scoreSummaryText.textContent = "YOU LOSE"
+    rollButton.textContent = "Roll to Start Again";
+    currentScore = 0;
 };
 
 const processWin = () => {
     body.classList.add("win");
-    currentScore = 0;
-    rollButton.textContent = "Roll to Start Again";
     instructionText.textContent = "You Win! Roll the dice to start a new game.";
+    scoreSummaryText.textContent = "YOU WIN"
+    rollButton.textContent = "Roll to Start Again";
+    currentScore = 0;
 };
 
 const setDiceImage = () => {
