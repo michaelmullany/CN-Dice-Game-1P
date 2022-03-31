@@ -6,7 +6,7 @@ let illegalValue = 1;
 const rollButton = document.getElementById("rollButton");
 const currentScoreDisplay = document.getElementById("currentScore");
 const targetScoreDisplay = document.getElementById("targetScore");
-const diceValueDisplay = document.getElementById("diceValue");
+const diceImage = document.getElementById("diceImage");
 const instructionText = document.getElementById("instruction");
 
 // Set a variable for the target score so it can be changed easily
@@ -33,7 +33,7 @@ rollButton.addEventListener("click", () => {
 
 const rollDice = () => {
     diceValue = Math.ceil(Math.random() * 6);
-    diceValueDisplay.textContent = diceValue;
+    setDiceImage();
 }
 
 const increaseScore = () => {
@@ -56,5 +56,8 @@ const processWin = () => {
     instructionText.textContent = "You Win! Roll the dice to start a new game.";
 };
 
-
+const setDiceImage = () => {
+    diceImage.style.display = "inline";
+    diceImage.src=`img/dice${diceValue}.png`;
+}
 
