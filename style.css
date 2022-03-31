@@ -34,3 +34,16 @@ body {
 ul {
     list-style-type: none;    
 }
+
+button {
+    background: black;
+    border: 1px solid goldenrod;
+    color: goldenrod;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 18px;
+    padding: 5px;
+}
+
+button:hover {
+    background-color: #222222;
+}

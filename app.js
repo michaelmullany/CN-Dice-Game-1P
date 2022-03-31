@@ -10,6 +10,8 @@ const diceImage = document.getElementById("diceImage");
 const instructionText = document.getElementById("instruction");
 
 rollButton.addEventListener("click", () => {
+
+    rollButton.textContent = "Roll the Dice";
     rollDice();
     
     //Only add score if it does not cause a loss
@@ -44,15 +46,17 @@ const updateScoreDisplay = () => {
 
 const processLoss = () => {
     currentScore = 0;
+    rollButton.textContent = "Roll to Start Again";
     instructionText.textContent = "You Lost! Roll the dice to start a new game.";
 };
 
 const processWin = () => {
     currentScore = 0;
+    rollButton.textContent = "Roll to Start Again";
     instructionText.textContent = "You Win! Roll the dice to start a new game.";
 };
 
 const setDiceImage = () => {
     diceImage.style.display = "inline";
-    diceImage.src=`img/dice${diceValue}.png`;
+    diceImage.src=`img/dice${diceValue}.png`; 
 }
