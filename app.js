@@ -2,6 +2,7 @@ let currentScore = 0;
 let diceValue = 0;
 let targetScore = 20;
 let illegalValue = 1;
+let gameOver = false;
 
 const rollButton = document.getElementById("rollButton");
 const currentScoreDisplay = document.getElementById("scoreDisplay");
@@ -12,6 +13,10 @@ const body = document.getElementsByTagName("body")[0];
 const diceRollSFX = document.getElementsByTagName("audio")[0];
 
 rollButton.addEventListener("click", () => {
+
+    if (gameOver) {
+        resetDisplay();
+    }
 
     rollDice();
     
@@ -33,7 +38,6 @@ rollButton.addEventListener("click", () => {
 
 const rollDice = () => {
     playDiceAudio();
-    resetGameText();
     diceValue = Math.ceil(Math.random() * 6);
     setDiceImage();
 }
@@ -53,6 +57,7 @@ const processLoss = () => {
     scoreSummaryText.textContent = "YOU LOSE"
     rollButton.textContent = "Roll to Start Again";
     currentScore = 0;
+    gameOver = true;
 };
 
 const processWin = () => {
@@ -61,6 +66,7 @@ const processWin = () => {
     scoreSummaryText.textContent = "YOU WIN"
     rollButton.textContent = "Roll to Start Again";
     currentScore = 0;
+    gameOver = true;
 };
 
 const setDiceImage = () => {
@@ -73,7 +79,9 @@ const playDiceAudio = () => {
     diceRollSFX.currentTime = 0;
     diceRollSFX.play();
 }
-const resetGameText = () => {
+const resetDisplay = () => {
+    gameOver = false;
+    updateScoreDisplay();
     scoreSummaryText.textContent = "Current Score";
     rollButton.textContent = "Roll the Dice";
     body.classList.remove("win", "lose");
