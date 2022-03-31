@@ -6,6 +6,7 @@ let illegalValue = 1;
 const rollButton = document.getElementById("rollButton");
 const currentScoreDisplay = document.getElementById("currentScore");
 const targetScoreDisplay = document.getElementById("targetScore");
+const instructionText = document.getElementById("instruction");
 
 // Set a variable for the target score so it can be changed easily
 targetScoreDisplay.textContent = targetScore;
@@ -21,18 +22,27 @@ rollButton.addEventListener("click", () => {
     }
 
     currentScore += diceValue;
-    currentScoreDisplay.textContent = currentScore;
+    updateScoreDisplay();
     
-    if (currentScore > targetScore) {
+    if (currentScore >= targetScore) {
         processWin();
+        return;
     }
-    // Neither lost nor won: Wait for next click
+    
+    instructionText.textContent = `Keep rolling to reach ${targetScore}`;
 });
 
+const updateScoreDisplay = () => {
+    currentScoreDisplay.textContent = currentScore;
+};
+
 const processLoss = () => {
-    console.log("You Lost!")
+    currentScore = 0;
+    updateScoreDisplay();
+    instructionText.textContent = "You Lost! Roll the dice to start a new game.";
 };
 
 const processWin = () => {
-    console.log("You Won!")
+    currentScore = 0;
+    instructionText.textContent = "You Win! Roll the dice to start a new game.";
 };
