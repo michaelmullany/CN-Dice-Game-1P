@@ -12,21 +12,23 @@
         <h1>Dice Game</h1>
         <p id="instruction">Roll dice to begin.</p>
     </header>
-    <main>
+    <div class="scoreSection">
         <h2>Current Score</h2>
         <p id="scoreDisplay">0</p>
+    </div>
+    <div class="diceSection">
         <div>
             <img id="diceImage" src="">
         </div>
         <button id="rollButton">Roll the Dice</button>
-    </main>
-    <section class="rulesSection">
+    </div>
+    <div class="rulesSection">
         <h2>Rules</h2>
         <ul>
             <li>Keep rolling until your total score is at least 20</li>
             <li>You lose if you roll a 1</li>
         </ul>
-    </section>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
