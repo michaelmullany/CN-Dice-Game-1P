@@ -9,6 +9,7 @@ const scoreSummaryText = document.getElementById("scoreSummary");
 const diceImage = document.getElementById("diceImage");
 const instructionText = document.getElementById("instruction");
 const body = document.getElementsByTagName("body")[0];
+const diceRollSFX = document.getElementsByTagName("audio")[0];
 
 rollButton.addEventListener("click", () => {
 
@@ -31,9 +32,8 @@ rollButton.addEventListener("click", () => {
 });
 
 const rollDice = () => {
-    scoreSummaryText.textContent = "Current Score"
-    rollButton.textContent = "Roll the Dice";
-    body.classList.remove("win","lose");
+    playDiceAudio();
+    resetGameText();
     diceValue = Math.ceil(Math.random() * 6);
     setDiceImage();
 }
@@ -67,3 +67,15 @@ const setDiceImage = () => {
     diceImage.style.display = "inline";
     diceImage.src=`img/dice${diceValue}.png`; 
 }
+
+const playDiceAudio = () => {
+    diceRollSFX.pause();
+    diceRollSFX.currentTime = 0;
+    diceRollSFX.play();
+}
+const resetGameText = () => {
+    scoreSummaryText.textContent = "Current Score";
+    rollButton.textContent = "Roll the Dice";
+    body.classList.remove("win", "lose");
+}
+
